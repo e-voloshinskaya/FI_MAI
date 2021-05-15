@@ -1,11 +1,11 @@
 int numTilePossibilities(char * tiles){
     int length = strlen(tiles);
-    int k[26] = {0}, ans = 0;
-    for(int i = 0; i < length; i++)
+    int k[26] = {0}, ans = 0; // k - array-counter of letters A-Z on a tile
+    for(int i = 0; i < length; i++) // filling the array
     {
         k[tiles[i] - 'A']++;
     }
-     ans = dfs(k);
+     ans = dfs(k); // depth-in-first search
     return ans;
 }
 
