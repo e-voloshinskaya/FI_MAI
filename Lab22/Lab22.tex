@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article}
+\usepackage[12pt]{extsizes}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\setcounter{page}{282}
+\usepackage[left=3.2cm, top=2.8cm, right=3.2cm, nohead, nofoot]{geometry}
+
+\begin{document}
+\noindent\textsf{\textbf{Т\,Е\,О\,Р\,Е\,М\,А 1.}}
+\textit{Пусть функция $z = f(x, y)$ определена и непрерывна вместе со всеми своими частными производными до порядка m включительно $(m \geqslant 1)$ в некоторой $\delta$-окрестности точки $(x_0, y_0)$. Тогда для всех $\Delta x$ и $\Delta y$, удовлетворяющих условию $\rho = \sqrt{\Delta x^2 + \Delta y^2}< \delta$, существует такое $\theta = \theta(\Delta x, \Delta y),\ 0 < \theta < 1$, что справедлива формула}
+\begin{flushleft}
+$\Delta z = f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0, y_0) = \dfrac{\partial f(x_0, y_0)}{\partial x} \Delta x + \dfrac{\partial f(x_0, y_0)}{\partial y} \Delta y +$
+\end{flushleft}
+\[+ \dfrac{1}{2!}\left[\dfrac{\partial^2f(x_0, y_0)}{\partial x^2}\Delta x^2 + 2\dfrac{\partial^2f(x_0,y_0)}{\partial x\partial y}\Delta x\Delta y + \dfrac{\partial^2f(x_0,y_0)}{\partial y^2}\Delta y^2\right] +\]
+\[+ \dfrac{1}{3!}\Big( \Delta x \dfrac{\partial}{\partial x} + \Delta y \dfrac{\partial}{\partial y}\Big) ^{\{3\}}f(x_0,y_0) + ...\]
+\[... + \dfrac{1}{(m-1)!}\Big(\Delta x \dfrac{\partial}{\partial x} + \Delta y \dfrac{\partial}{\partial y}\Big)^{\{m-1\}}f(x_0, y_0) + r_{m-1}(\Delta x, \Delta y),\]
+\noindent\textit{или, короче,}
+\[\Delta z = \sum\limits\limits_{k = 1}^{m-1}\frac{1}{k!}\Big(\Delta x \frac{\partial}{\partial x} + \Delta y \frac{\partial}{\partial y}\Big)^{\{k\}}f(x_0,y_0) + r_{m-1}(\Delta x, \Delta y), \tag{39.1}\]
+\textit{где}
+\[r_{m-1}(\Delta x, \Delta y) = \frac{1}{m!}\Big(\Delta x \frac{\partial}{\partial x} + \Delta y \frac{\partial}{\partial y}\Big)^{\{m\}}f(x_0 + \theta \Delta x, y_0 + \theta\Delta y). \tag{39.2}\]
+
+Формула (39.1) называется
+\textit{формулой Тейлора}
+(порядка $m - 1$) для функции $f$.
+
+Пусть $x = x_0 + \Delta x, y = y_0 + \Delta y$. Многочлен
+\begin{flushleft}
+    $P_n(x, y) = \sum\limits_{k = 0}^n \dfrac{1}{k!}\Big((x-x_0)\dfrac{\partial}{\partial x} + (y-y_0)\dfrac{\partial}{\partial y}\Big)^{\{k\}}f(x_0, y_0),\quad n =\ 0, 1, 2,\ ...\ ,$
+\end{flushleft}
+называется \textit{многочленом Тейлора} степени $n$ функции $f$ в точке $(x_0, y_0)$, разность $f(x,y)$ -- $P_n(x, y)$ --- остаточным членом $r_n(x,y)$ формулы Тейлора. Таким образом, формула Тейлора (39.1) имеет вид
+\begin{center}
+    $f(x,y) = P_{m-1}(x,y) + r_{m-1}(x, y).$
+\end{center}
+
+Запись $r_{m-1}(\Delta x,\Delta y)$ в виде (39.2) называется остаточным членом формулы Тейлора в \textit{форме Лагранжа}.
+
+При $m = 1$ в (39.1) требует разъяснения смысл первого члена правой части, поскольку в этом случае верхний индекс суммирования равен нулю. В этом случае, по определению, полагается, что этот член равен нулю, т.е. что формула (39.1) имеет вид
+\begin{center}
+    $\Delta z = r_0(\Delta x, \Delta y).$
+\end{center}
+
+В дальнейшем всегда, когда встретится выражение, записанное с помощью символа $\Sigma$, у которого значение верхнего индекса суммирования меньше значения нижнего индекса, будем считать, что это выражение равно нулю.\\
+\noindent\textsf{\large{Д\,о\,к\,а\,з\,а\,т\,е\,л\,ь\,с\,т\,в\,о.\ }} Пусть $\ \Delta x\ $ и $\Delta y\ $ зафиксированы так, что\ $\rho = \sqrt{\Delta x^2 + \Delta y^2} < \delta$;
+тогда все точки вида $(x_0 + t\Delta x,\ y_0 + t\Delta y)$, где $0 \leqslant t \leqslant 1$, лежат на отрезке, соединяющем точки $(x_0, y_0)$ и $(x_0 + \Delta x, y_0 + \Delta y)$, и поэтому все они принадлежат $\delta$-окрестности точки $(x_0, y_0)$. Вследствие этого имеет смысл композиция функций $z = f(x,y)$ и $x = x_0 +t\Delta x,\ y = y_0 + t\Delta y,\ 0 \leqslant t \leqslant 1$, т.е. сложная функция
+
+\[F(t) = f(x_0 + t\Delta x, y_o + t\Delta y),\ 0 \leqslant t \leqslant 1. \tag{39.3}\]
+
+\noindentОчевидно, что
+\[\Delta z = f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0, y_0) = F(1) - F(0).\tag{39.4}\]
+
+Поскольку функция $f$ имеет в $\delta$-окрестности точки $(x_0, y_0)$ $m$ непрерывных частных производных, согласно теореме о производных сложной функции (см. п. 37.3), функция $F$ также имеет на отрезке $[0,1]\ m$ непрерывных производных и поэтому для нее справедлива формула Тейлора порядка $m-1$ с остаточным членом в форме Лагранжа
+\[F(t) - F(0) = F'(0)t + \frac{F''(0)}{2!}t^2 + ... + \frac{F^{m-1}(0)}{(m-1)!}t^{m-1} + \frac{F^{m}(\theta t)}{m!}t^{m},\]
+\[0 < \theta < 1,\tag{39.5}\]
+\noindentи в рассматриваемой окрестности точки $(x_0, y_0)$ функцию (39.3) можно $m$ раз продифференцировать по правилу дифференцирования сложной функции (см. замечание 2 в п. 37.4), причем значения получающихся смешанных частных производных \textsf{\,н\,е\,  з\,а\,в\,и\,с\,я\,т\,} от порядка дифференцирования (см. п. 38.1).
+
+Выразив производные $F^{(k)}(t)$ через производные функции $f(x,y)$ и положив в формуле (39.5) $t=1$ (см.(39.4)), получим требуемую формулу Тейлора для функции $f(x,y)$. Действительно, из (39.3) следует, что
+\[F'(t) = \dfrac{\partial f}{\partial x}\dfrac{\partial x}{\partial t} + \dfrac{\partial f}{\partial y}\dfrac{\partial y}{\partial t} = \dfrac{\partial f(x_0 + t\Delta x, y_0 + t\Delta y)}{\partial x}\Delta x + \dfrac{\partial f(x_0 + t\Delta x, y_0 + t\Delta y)}{\partial y}\Delta y.\]
+Отсюда для $F''(t)$, опустив для краткости обозначения аргументов, получим
+\[F''(t) = \dfrac{d}{dt}\Big(\dfrac{\partial f}{\partial x}\Delta x + \dfrac{\partial f}{\partial y}\Delta y\Big) = \dfrac{\partial^2 f}{\partial x^2}\Delta x^2 + 2\dfrac{\partial^2 f}{\partial x\partial y}\Delta x\Delta y + \dfrac{\partial^2 f}{\partial y^2}\Delta y^2.\]
+
+
+\end{document}
