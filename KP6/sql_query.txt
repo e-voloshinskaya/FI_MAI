@@ -17,7 +17,8 @@ CREATE TABLE student
 -- Заполняем таблицу данными
 
 INSERT INTO student (surname, initials, gender, group, calculus, linear_algebra, programming, english, history)
-VALUES ("Balashov", "A. S.", "m", "8O-107B", 5, 4, 4, 3, 5),
+VALUES
+("Balashov", "A. S.", "m", "8O-107B", 5, 4, 4, 3, 5),
 ("Kalinina", "E. V.", "f", "8O-107B", 4, 5, 5, 4, 5),
 ("Nikolaeva", "K. P.", "f", "8O-107B", 4, 4, 3, 5, 4),
 ("Andreeva", "V. I.", "f", "8O-107B", 5, 5, 5, 5, 3),
@@ -27,7 +28,11 @@ VALUES ("Balashov", "A. S.", "m", "8O-107B", 5, 4, 4, 3, 5),
 ("Malkova", "E. S.", "f", "8O-106B", 5, 4, 5, 5, 5),
 ("Shatunova", "A. R.", "f", "8O-106B", 2, 2, 2, 2, 4),
 ("Repin", "I. D.", "m", "8O-106B", 5, 5, 5, 5, 5),
-("Razumovsky", "S. M.", "m", "8O-106B", 3, 3, 3, 4, 3);
+("Razumovsky", "S. M.", "m", "8O-106B", 3, 3, 3, 4, 3),
+("Samovarova", "L. V.", "f", "8O-106B", 3, 3, 3, 3, 3),
+("Kluev", "D. N.", "m", "8O-106B", 2, 5, 4, 4, 5),
+("Gagarina", "P. A.", "f", "8O-106B", 4, 4, 4, 5, 5),
+("Tolmach", "R. B.", "f", "8O-106B", 5, 4, 5, 4, 5);
 
 
 -- Запрос "выяснить, сколько студенток группы p получают стипендию"
