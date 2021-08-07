@@ -28,7 +28,17 @@ static const student MAI_students[students_length] = {
 	{"Kalinina", "E. V.", "f", "8O-107B", 4, 5, 5, 4, 5},
 	{"Nikolaeva", "K. P.", "f", "8O-107B", 4, 4, 3, 5, 4},
 	{"Andreeva", "V. I.", "f", "8O-107B", 5, 5, 5, 5, 3},
-	{"Berezina", "M. V.", "f", "8O-107B", 4, 4, 5, 4, 4}
+	{"Berezina", "M. V.", "f", "8O-107B", 4, 4, 5, 4, 4},
+	{"Alekseev", "A. L.", "m", "8O-107B", 5, 4, 5, 4, 4},
+	{"Galyamina", "Y. P.", "f", "8O-106B", 4, 4, 4, 4, 4},
+	{"Malkova", "E. S.", "f", "8O-106B", 5, 4, 5, 5, 5},
+	{"Shatunova", "A. R.", "f", "8O-106B", 2, 2, 2, 2, 4},
+	{"Repin", "I. D.", "m", "8O-106B", 5, 5, 5, 5, 5},
+	{"Razumovsky", "S. M.", "m", "8O-106B", 3, 3, 3, 4, 3},
+	{"Samovarova", "L. V.", "f", "8O-106B", 3, 3, 3, 3, 3},
+	{"Kluev", "D. N.", "m", "8O-106B", 2, 5, 4, 4, 5},
+	{"Gagarina", "P. A.", "f", "8O-106B", 4, 4, 4, 5, 5},
+	{"Tolmach", "R. B.", "f", "8O-106B", 5, 4, 5, 4, 5},
 };
 #endif
 
