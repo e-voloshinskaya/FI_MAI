@@ -34,7 +34,7 @@ void print_file(student array[])
     for (int i = 0; i < students_length; i++)
     {
         /*
-        printf("|%15s|     %c%c%c%c%c|       %c|%c%c%c%c%c%c%c|%10d|%16d|%13d|%9d|%9d|\n",
+        printf("|%15s|     %s|       %s|%s|%10d|%16d|%13d|%9d|%9d|\n",
             array[i].surname,
             array[i].initials[0], array[i].initials[1], array[i].initials[2], array[i].initials[3], array[i].initials[4],
             array[i].gender[0],
@@ -87,7 +87,6 @@ void count_scholars()
     fread(&s, sizeof(student), students_length, f);
     fclose(f);
     int count = 0;
-    //printf("%s %s", p, (*s).gender)
     for (int i = 0; i < students_length; i++)
     {
         if ((!strcmp(s[i].group, p)) && (!strcmp(s[i].gender, "f")) && (s[i].calculus > 3) && (s[i].linear_algebra > 3) && (s[i].programming > 3) && (s[i].english > 3) && (s[i].history > 3))

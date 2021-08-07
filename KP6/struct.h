@@ -26,7 +26,7 @@ void count_scholars();
 static const student MAI_students[students_length] = {
 	{"Balashov", "A. S.", "m", "8O-107B", 5, 4, 4, 3, 5},
 	{"Kalinina", "E. V.", "f", "8O-107B", 4, 5, 5, 4, 5},
-	{"Nikolaeva", "K. P.", "f", "8O-107B", 4, 4, 3, 5, 4},
+	{"Nikolaeva", "K. P.", "f", "8O-107B", 4, 3, 3, 5, 4},
 	{"Andreeva", "V. I.", "f", "8O-107B", 5, 5, 5, 5, 3},
 	{"Berezina", "M. V.", "f", "8O-107B", 4, 4, 5, 4, 4},
 	{"Alekseev", "A. L.", "m", "8O-107B", 5, 4, 5, 4, 4},
