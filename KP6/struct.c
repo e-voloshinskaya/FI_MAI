@@ -8,7 +8,7 @@
 void check_file_existence(FILE *file)
 {
     if (file == NULL) {
-        fprintf(stderr, "I/O Error: can't open file\n");
+        fprintf(stderr, "Error. Can't open file\n");
         exit(1);
     }
 }
@@ -80,7 +80,7 @@ void count_scholars()
     FILE *f = fopen("marks.bin", "rb");
     check_file_existence(f);
     
-    printf("Введите название группы (7 букв):\n");
+    printf("Enter a group name (7 symbols):\n");
     char p[group_LENGTH];
     scanf("%7s", p);
     student s[students_length];
@@ -94,6 +94,6 @@ void count_scholars()
             count++;
         }
     }
-    printf("Количество студенток группы %s, получающих стипедию: %d.\n", p, count);
+    printf("The number of female students of the group %s, receiving scholarship: %d\n", p, count);
     
 }
