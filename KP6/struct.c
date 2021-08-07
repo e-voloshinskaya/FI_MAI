@@ -60,7 +60,7 @@ void print_file(student array[])
     }
 }
 
-void pre_read()
+void open_read()
 {
     FILE *f = fopen("marks.bin", "rb");
     check_file_existence(f);
@@ -70,14 +70,14 @@ void pre_read()
 
 void read_file()
 {
-    pre_read();
+    open_read();
     print_file(students);
 }
 
 
 void count_scholars()
 {
-    pre_read();
+    open_read();
 
     printf("Enter a group name (7 symbols):\n");
     char p[group_LENGTH];
