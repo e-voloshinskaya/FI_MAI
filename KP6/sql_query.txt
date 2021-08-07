@@ -1,0 +1,37 @@
+-- Создаем таблицу оценок
+
+CREATE TABLE student
+(
+  surname varchar(15),
+  initials varchar(6),
+  gender varchar(2),
+  group varchar(8),
+  calculus integer,
+  linear_algebra integer,
+  programming integer,
+  english integer,
+  history integer,
+);
+
+
+-- Заполняем таблицу данными
+
+INSERT INTO student (surname, initials, gender, group, calculus, linear_algebra, programming, english, history)
+VALUES ("Balashov", "A. S.", "m", "8O-107B", 5, 4, 4, 3, 5),
+("Kalinina", "E. V.", "f", "8O-107B", 4, 5, 5, 4, 5),
+("Nikolaeva", "K. P.", "f", "8O-107B", 4, 4, 3, 5, 4),
+("Andreeva", "V. I.", "f", "8O-107B", 5, 5, 5, 5, 3),
+("Berezina", "M. V.", "f", "8O-107B", 4, 4, 5, 4, 4),
+("Alekseev", "A. L.", "m", "8O-107B", 5, 4, 5, 4, 4),
+("Galyamina", "Y. P.", "f", "8O-106B", 4, 4, 4, 4, 4),
+("Malkova", "E. S.", "f", "8O-106B", 5, 4, 5, 5, 5),
+("Shatunova", "A. R.", "f", "8O-106B", 2, 2, 2, 2, 4),
+("Repin", "I. D.", "m", "8O-106B", 5, 5, 5, 5, 5),
+("Razumovsky", "S. M.", "m", "8O-106B", 3, 3, 3, 4, 3);
+
+
+-- Запрос "выяснить, сколько студенток группы p получают стипендию"
+
+SELECT COUNT (*)
+FROM student
+WHERE group = p AND gender = “f” AND calculus > 3 AND linear_algebra > 3 AND programming > 3 AND english > 3 AND history > 3;
