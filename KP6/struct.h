@@ -9,7 +9,7 @@
 typedef struct {
 	char surname[surname_LENGTH];
 	char initials[initials_LENGTH];
-	char gender[2];
+	char gender[2]; //correct!
 	char group[group_LENGTH];
 	int calculus;
 	int linear_algebra;

@@ -48,7 +48,7 @@ void print_file(student array[])
         
         printf("|%15s|", array[i].surname);
         printf("     %s|", array[i].initials);
-        printf("        %s|", array[i].gender);
+        printf("       %s|", array[i].gender);
         printf("%s|", array[i].group);
         printf("%10d|", array[i].calculus);
         printf("%16d|", array[i].linear_algebra);

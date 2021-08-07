@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
         //     exit(1);
         // }
 
-        printf("%s\n", argv[1]);
+        //printf("%s\n", argv[1]);
         write_file();
 
     } else if (argv[1][0] == 'r') {
