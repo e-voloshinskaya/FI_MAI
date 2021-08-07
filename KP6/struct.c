@@ -16,7 +16,6 @@ void check_file_existence(FILE *file)
 void write_file()
 {
     FILE *f = fopen("marks.bin", "wb");
-    check_file_existence(f);
     fwrite(&MAI_students, sizeof(student), students_length, f);
     /*for (int i = 0; i < students_length; i++)
     {
@@ -78,11 +77,12 @@ void read_file()
 
 void count_scholars()
 {
+    FILE *f = fopen("marks.bin", "rb");
+    check_file_existence(f);
+    
     printf("Введите название группы (7 букв):\n");
     char p[group_LENGTH];
     scanf("%7s", p);
-    FILE *f = fopen("marks.bin", "rb");
-    check_file_existence(f);
     student s[students_length];
     fread(&s, sizeof(student), students_length, f);
     fclose(f);
