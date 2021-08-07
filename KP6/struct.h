@@ -1,7 +1,7 @@
 #ifndef struct_h_
 #define struct_h_
 
-#define students_length 5
+#define students_length 15
 #define surname_LENGTH 15
 #define initials_LENGTH 6
 #define group_LENGTH 8
@@ -38,7 +38,7 @@ static const student MAI_students[students_length] = {
 	{"Samovarova", "L. V.", "f", "8O-106B", 3, 3, 3, 3, 3},
 	{"Kluev", "D. N.", "m", "8O-106B", 2, 5, 4, 4, 5},
 	{"Gagarina", "P. A.", "f", "8O-106B", 4, 4, 4, 5, 5},
-	{"Tolmach", "R. B.", "f", "8O-106B", 5, 4, 5, 4, 5},
+	{"Tolmach", "R. B.", "f", "8O-106B", 5, 4, 5, 4, 5}
 };
 #endif
 
