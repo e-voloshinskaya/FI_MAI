@@ -27,7 +27,7 @@ void write_file()
 }
 
 
-void print_file(student array[])
+void print_file()
 {
     printf("-----------------------------------------------------------------------------------------------------------\n");
     printf("|    surname    | initials | gender | group | calculus | linear algebra | programming | english | history |\n");
@@ -46,16 +46,15 @@ void print_file(student array[])
             array[i].english,
             array[i].history
         );*/
-        
-        printf("|%15s|", array[i].surname);
-        printf("     %s|", array[i].initials);
-        printf("       %s|", array[i].gender);
-        printf("%s|", array[i].group);
-        printf("%10d|", array[i].calculus);
-        printf("%16d|", array[i].linear_algebra);
-        printf("%13d|", array[i].programming);
-        printf("%9d|", array[i].english);
-        printf("%9d|\n", array[i].history);
+        printf("|%15s|", students[i].surname);
+        printf("     %s|", students[i].initials);
+        printf("       %s|", students[i].gender);
+        printf("%s|", students[i].group);
+        printf("%10d|", students[i].calculus);
+        printf("%16d|", students[i].linear_algebra);
+        printf("%13d|", students[i].programming);
+        printf("%9d|", students[i].english);
+        printf("%9d|\n", students[i].history);
         printf("-----------------------------------------------------------------------------------------------------------\n");
     }
 }
@@ -71,7 +70,7 @@ void open_read()
 void read_file()
 {
     open_read();
-    print_file(students);
+    print_file();
 }
 
 
