@@ -28,15 +28,15 @@ int main(int argc, char const *argv[])
     FILE* f = file_read(argv[1]);
     int n = 0, m = 0, nz = 0;
     nz = find_size_matrix(f, &n, &m);
-    printf("Input file is correct. Matrix size: n = %d rows and m = %d columns, %d elements\n\n", n, m, nz);
+    printf("Input file is correct. Matrix size: n = %d rows and m = %d columns, %d non-zero elements\n\n", n, m, nz);
 
     //creating vectors
     vector LB, YE;
     vector *plb = &LB, *pye = &YE;
     create_vector(plb, nz + 1);
     create_vector(pye, nz);
-
-    //enter_matrix(plb, pye, n, m, f);
+    //reading matrix
+    enter_matrix(plb, pye, n, m, f);
 
     //user interface
     while (true) {
@@ -46,7 +46,7 @@ int main(int argc, char const *argv[])
         printf("Choose option 1-4:\n");
         if (scanf("%d", &opt) != 1) {
             printf("Error: There is no such option\n");
-            scanf("%*[^\n]"); // очистка потока
+            scanf("%*[^\n]"); //stream cleaning
             continue;
         }
         switch (opt) {
