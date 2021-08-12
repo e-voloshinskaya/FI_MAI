@@ -35,8 +35,13 @@ int main(int argc, char const *argv[])
     vector *plb = &LB, *pye = &YE;
     create_vector(plb, nz + 1);
     create_vector(pye, nz);
+
+    //for reading: using max of row, column to have a bijection between matrices in file and in program
+    int N = n;
+    if (n < m)
+        N = m;
     //reading matrix
-    enter_matrix(plb, pye, n, m, f);
+    enter_matrix(plb, pye, n, m, N, f);
 
     //user interface
     while (true) {
@@ -49,12 +54,13 @@ int main(int argc, char const *argv[])
             scanf("%*[^\n]"); //stream cleaning
             continue;
         }
+        printf("\n");
         switch (opt) {
             case 1:
-                //print_matrix(plb, pye, n, m); // может быть ошибка!!!!!
+                print_matrix(plb, pye, n, m, N);
                 break;
             case 2:
-                //print_as_stored(m); //функции нет
+                print_as_stored(plb, pye, n, m);
                 break;
             case 3:
                 //multiply_matrix(plb, pye, n, m);

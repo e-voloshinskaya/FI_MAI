@@ -52,7 +52,7 @@ int find_size_matrix(FILE* f, int* n, int* m)
                 nz_elems++;
             
             elems++; // elems - общее количество чисел в файле
-            printf("(%d,%d,%d) ", e, elems, *n);
+            //printf("(%d,%d,%d) ", e, elems, *n);
         } else {
             printf("Error: Input data should contain only numbers\n");
             exit(1);
@@ -70,7 +70,7 @@ int find_size_matrix(FILE* f, int* n, int* m)
 }
 
 
-void enter_matrix(vector* plb, vector* pye, int n, int m, FILE* f)
+void enter_matrix(vector* plb, vector* pye, int n, int m, int N, FILE* f)
 {
     int e = 0, pos = 0;
 
@@ -80,11 +80,62 @@ void enter_matrix(vector* plb, vector* pye, int n, int m, FILE* f)
             fscanf(f, "%d", &e);
 
             if (e != 0) {
-                plb -> data[pos] = i*n + j;
+                plb -> data[pos] = i * N + j;
                 pye -> data[pos] = e;
                 pos++;
             }
         }
     }
     plb -> data[pos] = -1;
+}
+
+
+void print_matrix(vector* plb, vector* pye, int n, int m, int N)
+{
+    int pos = 0, flag = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++)
+        {
+            int lambda, plb_i, plb_j;
+            lambda = plb -> data[pos];
+            if (lambda == -1) {
+                flag = 1;
+            }
+            switch(flag) {
+                case 0:
+                    plb_i = lambda / N;
+                    plb_j = lambda % N;
+                    if (plb_i == i && plb_j == j) {
+                        printf("%d ", pye -> data[pos]);
+                        pos++;
+                    } else {
+                        printf("0 ");
+                    }
+                    break;
+                case 1:
+                    printf("0 ");
+            }
+            
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+
+void print_vector(vector* v, char* name)
+{
+    printf("%s: ", name);
+    for (int i = 0; i < v -> size; i++)
+    {
+        printf("%d ", v -> data[i]);
+    }
+    printf("\n");
+}
+
+void print_as_stored(vector* plb, vector* pye, int n, int m)
+{
+    print_vector(plb, "LB");
+    print_vector(pye, "YE");
+    printf("\n");
 }
