@@ -6,6 +6,25 @@
 #include "vector.h"
 
 
+bool file_check(FILE* f)
+{
+    if (f == NULL) {
+        printf("Error: File not found\n");
+	return true;
+    }
+
+    fseek(f, 0, SEEK_END);
+    long pos = ftell(f);
+    if (pos ==  0) {
+        printf("Error: File is empty\n");
+	return true;
+    }
+    fseek(f, 0, SEEK_SET);
+
+    return false;
+}
+
+
 FILE* file_read(const char* name)
 {
     //printf("%s", name);
@@ -17,29 +36,10 @@ FILE* file_read(const char* name)
 }
 
 
-bool file_check(FILE* f)
-{
-    if (f == NULL) {
-        printf("File not found\n");
-	return true;
-    }
-
-    fseek(f, 0, SEEK_END);
-    long pos = ftell(f);
-    if (pos ==  0) {
-        printf("File is empty\n");
-	return true;
-    }
-    fseek(f, 0, SEEK_SET);
-
-    return false;
-}
-
-
 int main(int argc, char const *argv[])
 {
     if (argc != 2) {
-        printf("Exactly one argument is required. Enter filename:\n");
+        printf("Error: Exactly one argument is required. Enter filename:\n");
         exit(1);
     }
 
