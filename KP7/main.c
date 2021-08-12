@@ -6,48 +6,65 @@
 #include "vector.h"
 
 
-bool file_check(FILE* f)
+void menu()
 {
-    if (f == NULL) {
-        printf("Error: File not found\n");
-	return true;
-    }
-
-    fseek(f, 0, SEEK_END);
-    long pos = ftell(f);
-    if (pos ==  0) {
-        printf("Error: File is empty\n");
-	return true;
-    }
-    fseek(f, 0, SEEK_SET);
-
-    return false;
-}
-
-
-FILE* file_read(const char* name)
-{
-    //printf("%s", name);
-    FILE* f = fopen(name, "r");
-    if (file_check(f)) {
-        exit(1);
-    }
-    return f;
+        printf("Available options:\n");
+        printf("1. Print matrix in usual form\n");
+        printf("2. Print matrix as stored\n");
+        printf("3. Multiply the row vector by the entered sparse matrix and calculate the number of non-zero elements of the result\n");
+        printf("4. Quit\n");
 }
 
 
 int main(int argc, char const *argv[])
 {
+    //reading filename from command line
     if (argc != 2) {
         printf("Error: Exactly one argument is required. Enter filename:\n");
         exit(1);
     }
 
+    //preprocessing file
     FILE* f = file_read(argv[1]);
+    int n = 0, m = 0, nz = 0;
+    nz = find_size_matrix(f, &n, &m);
+    printf("Input file is correct. Matrix size: n = %d rows and m = %d columns, %d elements\n\n", n, m, nz);
 
-    int n = 0, m = 0;
-    find_size_matrix(f, &n, &m);
-    printf("Read successfully. Matrix size: n = %d rows and m = %d columns.\n", n, m);
+    //creating vectors
+    vector LB, YE;
+    vector *plb = &LB, *pye = &YE;
+    create_vector(plb, nz + 1);
+    create_vector(pye, nz);
+
+    //enter_matrix(plb, pye, n, m, f);
+
+    //user interface
+    while (true) {
+        int opt = 0;
+
+        menu();
+        printf("Choose option 1-4:\n");
+        if (scanf("%d", &opt) != 1) {
+            printf("Error: There is no such option\n");
+            scanf("%*[^\n]"); // очистка потока
+            continue;
+        }
+        switch (opt) {
+            case 1:
+                //print_matrix(plb, pye, n, m); // может быть ошибка!!!!!
+                break;
+            case 2:
+                //print_as_stored(m); //функции нет
+                break;
+            case 3:
+                //multiply_matrix(plb, pye, n, m);
+                break;
+            case 4:
+                exit(0);
+        }
+    }
+    
+
 
     return 0;
 }
