@@ -1,5 +1,6 @@
 #ifndef vector_h
 #define vector_h
+#include <stdbool.h>
 
 typedef struct
 {

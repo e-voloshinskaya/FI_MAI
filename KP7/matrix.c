@@ -20,4 +20,3 @@ void find_size_matrix(FILE* f, int* n, int* m)
     fseek(f, 0, SEEK_SET);
 // seek_set - начало файла, 0 - сдвиг (на 0 байтов)
 }
-
