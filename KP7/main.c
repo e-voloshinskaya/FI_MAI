@@ -47,7 +47,7 @@ int main(int argc, char const *argv[])
 
     int n = 0, m = 0;
     find_size_matrix(f, &n, &m);
-    printf("n = %d  m = %d\n", n, m);
+    printf("Read successfully. Matrix size: n = %d rows and m = %d columns.\n", n, m);
 
     return 0;
 }
