@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "matrix.h"
 
@@ -108,14 +109,14 @@ void print_matrix(vector* plb, vector* pye, int n, int m, int N)
                     if (plb_i == i && plb_j == j) {
                         printf("%d ", pye -> data[pos]);
                         pos++;
-                    } else {
-                        printf("0 ");
-                    }
-                    break;
+                        break;
+                    } //else {
+                    //     printf("0 ");
+                    // }
+                    //break;
                 case 1:
                     printf("0 ");
             }
-            
         }
         printf("\n");
     }
@@ -138,4 +139,79 @@ void print_as_stored(vector* plb, vector* pye, int n, int m)
     print_vector(plb, "LB");
     print_vector(pye, "YE");
     printf("\n");
+}
+
+
+void multiply_matrix(vector* plb, vector* pye, int n, int m, int N)
+{
+    //create and print row-vector
+    int *row;
+    row = (int*)malloc(n*sizeof(int));
+    srand(time(NULL)); //генерируем разные значения для srand, чтобы получить разные случайные числа
+    printf("row-v:\n");
+    for (int i = 0; i < n; i++)
+    {
+        row[i] = -50 + rand()%100;
+        printf("%d ", row[i]);
+    }
+    //print sp-matrix
+    printf("\n\n  x\n\nsparse-matrix:\n");
+    print_matrix(plb, pye, n, m, N);
+
+    //creating res-vector and filling it by res of multiplication
+    int *res;
+    int e, i, j, lambda;
+    res = (int*)malloc(m*sizeof(int));
+    for (int p = 0; p < pye -> size; p++)
+    {
+        lambda = plb -> data[p]; // p = i * N + j
+        i = lambda / N;
+        j = lambda % N;
+        e = pye -> data[p];
+        res[j] += row[i] * e;
+    }
+    printf("  =\n\nresult:\n");
+
+    //count non-zero in res and print
+    int nz_res = 0;
+    for (int p = 0; p < m; p++)
+    {
+        if (res[p] != 0)
+            nz_res++;
+        printf("%d ", res[p]);
+    }
+    printf("\n---------------------------------------------------\n");
+    printf("| Number of non-zero elements in result vector: %d |", nz_res);
+    printf("\n---------------------------------------------------\n\n");
+    
+    // //rewrite matrix in usual form
+    // int *matrix;
+    // matrix = (int*)calloc(n*m, sizeof(int));
+    // int lambda, i = 0, j = 0;
+    // for (int p = 0; p < pye -> size; p++)
+    // {
+    //     lambda = plb -> data[p];
+    //     i = lambda / N;
+    //     j = lambda % N;
+    //     matrix[i*N + j] = pye -> data[p];
+    // }
+    // //print matrix
+    // for (int p = 0; p < n*m; p++)
+    // {
+    //     if (p % N == 0)
+    //         if (p / N == n / 2)
+    //             printf("   S = ");
+    //         else
+    //             printf("       ");
+            
+    //     printf("%d ", matrix[p]);
+    //     if (p % N == m - 1)
+    //         printf("\n");
+    // }
+    //free(matrix);
+    //printf("\n=\n");
+    
+    free(row);
+    free(res);
+    
 }
