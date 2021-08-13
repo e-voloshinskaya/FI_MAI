@@ -63,14 +63,14 @@ int main(int argc, char const *argv[])
                 print_as_stored(plb, pye, n, m);
                 break;
             case 3:
-                //multiply_matrix(plb, pye, n, m);
+                multiply_matrix(plb, pye, n, m, N);
                 break;
             case 4:
                 exit(0);
         }
     }
-    
-
-
+    free(plb);
+    free(pye);
+    fclose(f);
     return 0;
 }
