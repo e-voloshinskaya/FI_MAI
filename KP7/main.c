@@ -60,7 +60,7 @@ int main(int argc, char const *argv[])
                 print_matrix(plb, pye, n, m, N);
                 break;
             case 2:
-                print_as_stored(plb, pye, n, m);
+                print_as_stored(plb, pye);
                 break;
             case 3:
                 multiply_matrix(plb, pye, n, m, N);
