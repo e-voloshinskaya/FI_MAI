@@ -133,7 +133,7 @@ void print_vector(vector* v, char* name)
     printf("\n");
 }
 
-void print_as_stored(vector* plb, vector* pye, int n, int m)
+void print_as_stored(vector* plb, vector* pye)
 {
     print_vector(plb, "LB");
     print_vector(pye, "YE");
