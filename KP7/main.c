@@ -49,7 +49,7 @@ int main(int argc, char const *argv[])
 
         menu();
         printf("Choose option 1-4:\n");
-        if (scanf("%d", &opt) != 1) {
+        if (scanf("%d", &opt) != 1 || opt < 1 || opt > 4) {
             printf("Error: There is no such option\n");
             scanf("%*[^\n]"); //stream cleaning
             continue;
