@@ -55,7 +55,7 @@ int find_size_matrix(FILE* f, int* n, int* m)
             elems++; // elems - общее количество чисел в файле
             //printf("(%d,%d,%d) ", e, elems, *n);
         } else {
-            printf("Error: Input data should contain only numbers\n");
+            printf("Error: Input data should contain only integer numbers\n");
             exit(1);
         }
     }
