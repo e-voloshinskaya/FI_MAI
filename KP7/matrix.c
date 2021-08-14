@@ -93,11 +93,10 @@ void enter_matrix(vector* plb, vector* pye, int n, int m, int N, FILE* f)
 
 void print_matrix(vector* plb, vector* pye, int n, int m, int N)
 {
-    int pos = 0, flag = 0;
+    int pos = 0, flag = 0, lambda, plb_i, plb_j;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++)
         {
-            int lambda, plb_i, plb_j;
             lambda = plb -> data[pos];
             if (lambda == -1) {
                 flag = 1;
