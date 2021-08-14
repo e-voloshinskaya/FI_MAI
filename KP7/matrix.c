@@ -104,7 +104,7 @@ void print_matrix(vector* plb, vector* pye, int n, int m, int N)
             }
             switch(flag) {
                 case 0:
-                    plb_i = lambda / N;
+                    plb_i = lambda / N;  //3 строки можно заменить проверкой i* N + j == lambda
                     plb_j = lambda % N;
                     if (plb_i == i && plb_j == j) {
                         printf("%d ", pye -> data[pos]);
