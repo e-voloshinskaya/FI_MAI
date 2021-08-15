@@ -19,7 +19,7 @@ bool file_check(FILE* f)
 	    return true;
     }
 	
-    seek(f, -2, SEEK_END);
+    fseek(f, -2, SEEK_END);
     int c = getc(f);
     if (c >= '0' && c <= '9') {
         c = getc(f);
@@ -191,7 +191,7 @@ void multiply_matrix(vector* plb, vector* pye, int n, int m, int N)
 
     //creating res-vector and filling it by res of multiplication
     int *res;
-    int e, i, j, lambda;
+    int e, i, j, lambda = 0;
     res = (int*)malloc(m*sizeof(int));
     for (int p = 0; p < pye -> size; p++)
     {
