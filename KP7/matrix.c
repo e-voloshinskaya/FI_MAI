@@ -50,7 +50,7 @@ FILE* file_read(const char* name)
 
 int find_size_matrix(FILE* f, int* n, int* m)
 {
-    int e = 0, elems = -1, nz_elems = 0, flag = 0, s, columns = 0;
+    int e = 0, elems = -1, nz_elems = 0, flag = 0, s;
 
     while (!feof(f)) {
         e = 0;
