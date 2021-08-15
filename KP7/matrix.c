@@ -9,7 +9,7 @@ bool file_check(FILE* f)
 {
 	if (f == NULL) {
 		printf("Error: File not found\n");
-	return true;
+		return true;
 	}
 
 	fseek(f, 0, SEEK_END);
@@ -96,7 +96,7 @@ int find_size_matrix(FILE* f, int* n, int* m)
 	if (*n == 0 || elems <= 0 || elems % *n != 0) {
 		printf("Error: The size of the matrix is incorrect or\n  the file contains excessive spaces\n");
 		exit(1);
-
+	}
 	*m = elems / *n;
 	fseek(f, 0, SEEK_SET); // seek_set - начало файла, 0 - сдвиг (на 0 байтов)
 	return nz_elems;
