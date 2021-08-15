@@ -50,14 +50,34 @@ FILE* file_read(const char* name)
 
 int find_size_matrix(FILE* f, int* n, int* m)
 {
-    int e = 0, elems = -1, nz_elems = 0, s;
+    int e = 0, elems = -1, nz_elems = 0, flag = 0, s, columns = 0;
 
     while (!feof(f)) {
         e = 0;
         int s = getc(f);
-        if (s == '\n')
+        if ((s < '0' || s > '9') && s != '-' && s != ' ' && s != '\n')
+        {
+            printf("Error: Input data should contain only integer numbers (positive without sign or negative)\n");
+            exit(1);
+        } else if (s == '-') {
+            do {
+                s = getc(f);
+                if (s < '0' || s > '9') {
+                    printf("Error: Input data should contain only integer numbers\n");
+                    exit(1);
+                }
+                if ('0' < s && s <= '9')
+                    flag = 1;
+            } while (s != ' ' && s != '\n');
+            s = ungetc(s, f);
+            elems++;
+            e++;
+            if (flag == 1)
+                nz_elems++;
+            flag = 0;
+        } else if (s == '\n') {
             (*n)++;
-        else
+        } else
             ungetc(s, f);
 
         if (fscanf(f, "%d", &e))
@@ -66,17 +86,16 @@ int find_size_matrix(FILE* f, int* n, int* m)
                 nz_elems++;
             
             elems++; // elems - общее количество чисел в файле
-            //printf("(%d,%d,%d) ", e, elems, *n);
+            printf("(%d,%d,%d) ", e, elems, *n);
         } else {
             printf("Error: Input data should contain only integer numbers\n");
             exit(1);
         }
     }
 
-    if (*n == 0 || elems <= 0 || elems % *n != 0 || e != 0) {
-        printf("Error: The size of the matrix is incorrect or\n  there is no new line at the end of the file\n");
+    if (*n == 0 || elems <= 0 || elems % *n != 0) {
+        printf("Error: The size of the matrix is incorrect\n or the file contains excessive spaces\n");
         exit(1);
-    }
 
     *m = elems / *n;
     fseek(f, 0, SEEK_SET); // seek_set - начало файла, 0 - сдвиг (на 0 байтов)
