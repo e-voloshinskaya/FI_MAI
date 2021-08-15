@@ -211,9 +211,9 @@ void multiply_matrix(vector* plb, vector* pye, int n, int m, int N)
             nz_res++;
         printf("%d ", res[p]);
     }
-    printf("\n---------------------------------------------------\n");
-    printf("| Number of non-zero elements in result vector: %d |", nz_res);
-    printf("\n---------------------------------------------------\n\n");
+    printf("\n----------------------------------------------------\n");
+    printf("| Number of non-zero elements in result vector: %2d |", nz_res);
+    printf("\n----------------------------------------------------\n\n");
     
     // //rewrite matrix in usual form
     // int *matrix;
