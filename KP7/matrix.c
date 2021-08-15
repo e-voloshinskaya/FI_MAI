@@ -18,6 +18,19 @@ bool file_check(FILE* f)
         printf("Error: File is empty\n");
 	    return true;
     }
+	
+    seek(f, -2, SEEK_END);
+    int c = getc(f);
+    if (c >= '0' && c <= '9') {
+        c = getc(f);
+        if (c != 0x0a) {
+            printf("Error: No new line at the end of the file\n");
+            exit(1);
+        }
+    } else {
+        printf("Error: Wrong file format. A new line may be needed at the end of the file\n");
+        exit(1);
+    }
     
     fseek(f, 0, SEEK_SET);
     return false;
