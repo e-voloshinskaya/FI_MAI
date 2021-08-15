@@ -86,7 +86,7 @@ int find_size_matrix(FILE* f, int* n, int* m)
                 nz_elems++;
             
             elems++; // elems - общее количество чисел в файле
-            printf("(%d,%d,%d) ", e, elems, *n);
+            //printf("(%d,%d,%d) ", e, elems, *n);
         } else {
             printf("Error: Input data should contain only integer numbers\n");
             exit(1);
@@ -94,7 +94,7 @@ int find_size_matrix(FILE* f, int* n, int* m)
     }
 
     if (*n == 0 || elems <= 0 || elems % *n != 0) {
-        printf("Error: The size of the matrix is incorrect\n or the file contains excessive spaces\n");
+        printf("Error: The size of the matrix is incorrect or\n  the file contains excessive spaces\n");
         exit(1);
 
     *m = elems / *n;
