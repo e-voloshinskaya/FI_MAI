@@ -20,7 +20,7 @@ void does_list_exist(List* list)
 }
 
 //!!!!!!!!!!!!!! доделать!!!!!!!
-void add_node(List* list, int pos, Item e) //pos = индекс эл в векторе + 1
+void add_node(List* list, int pos, Item e)
 {
     does_list_exist(list); // убрать эту строку куда-нибудь в интерфейс чтобы не повторялась
     resize_list(list, size_list(list) + 1);
