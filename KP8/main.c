@@ -73,3 +73,20 @@ void size(List* list)
     does_list_exist(list);
     printf("%d\n", size_list(list));
 }
+
+void swap_halves(List* list)
+{
+    if ((size_list(list) - 1) % 2 == 0)
+    {
+        half = (size_list(list) - 1) / 2;
+        for (int i = 0; i < half - 1; i++)
+        {
+            Item n = *get_elem_list(list, i);
+            *get_elem_list(list, i) = *get_elem_list(list, half);
+            *get_elem_list(list, half) = n;
+        }
+        print(list);
+    } else {
+        printf("List has odd number of elements. Add or delete one to swap halves.")
+    }
+}
