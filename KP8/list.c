@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <float.h>
 
 #include "list.h"
+
+const Item barrier = FLT_MAX;
 
 void create_list(List* list, int sz)
 {
     list -> size = sz;
-    list -> data = (Item*)calloc(list -> size, sizeof(Item));
+    list -> data = (Item*)malloc(list -> size, sizeof(Item));
+    list -> data[0] = barrier;
 }
 
 void resize_list(List* list, int sz)
