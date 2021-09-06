@@ -5,7 +5,7 @@
 
 void create(List* list);
 bool does_list_exist(List* list);
-void add_node(List* list, int pos, Item e);
+void add_node(List* list, int pos, float e);
 void delete_node(List* list, int pos);
 void print(List* list);
 void swap_halves(List* list);

@@ -4,19 +4,19 @@
 
 #include "list.h"
 
-const Item barrier = FLT_MAX;
+const float barrier = 100;
 
 void create_list(List* list, int sz)
 {
     list -> size = sz;
-    list -> data = (Item*)malloc(list -> size * sizeof(Item));
+    list -> data = (float*)malloc(sizeof(float) * list -> size);
     list -> data[0] = barrier;
 }
 
 void resize_list(List* list, int sz)
 {
     list -> size = sz;
-    list -> data = realloc(list -> data, sizeof(Item) * list -> size);
+    list -> data = realloc(list -> data, sizeof(float) * list -> size);
 }
 
 int size_list(List* list)
@@ -29,12 +29,12 @@ bool is_index_in_range(List* list, int i)
     if (i >= 0 && i < size_list(list))
         return true;
     else {
-        printf("Index out of range\n");
+        printf("Index out of range.\n\n");
         return false;
     }
 }
 
-Item* get_elem_list(List* list, int pos)
+float* get_elem_list(List* list, int pos)
 {
     if (is_index_in_range(list, pos)) {
         return &(list -> data[pos]); //передаем ссылку на расположение элемента

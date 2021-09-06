@@ -12,7 +12,7 @@ void create(List* list)
 bool does_list_exist(List* list)
 {
     if (list == NULL) {
-        printf("List doesn't exist\n");
+        printf("List doesn't exist.\n\n");
         return false;
     } else {
         return true;
@@ -20,7 +20,7 @@ bool does_list_exist(List* list)
 }
 
 //!!!!!!!!!!!!!! доделать!!!!!!!
-void add_node(List* list, int pos, Item e)
+void add_node(List* list, int pos, float e)
 {
     resize_list(list, size_list(list) + 1);
     for (int i = size_list(list) - 1; i > pos; i--)
@@ -43,10 +43,15 @@ void delete_node(List* list, int pos)
 
 void print(List* list)
 {
-    //for (int i = 0; i < size_list(list) - 1; i++) //не печатаем барьерный элемент
-    for (int i = 0; i < size_list(list); i++)
-    {
-        printf("%f ", *get_elem_list(list, i));
+    //for (int i = 0; i < size_list(list); i++) // печатаем барьерный элемент
+    printf("List elements:\n");
+    if (empty_list)
+        printf("  *List is empty*\n");
+    else {
+        for (int i = 0; i < size_list(list) - 1; i++)
+        {
+            printf("%f ", *get_elem_list(list, i));
+        }
     }
     printf("\n");
 }
@@ -72,12 +77,12 @@ void swap_halves(List* list)
         int half = (size_list(list) - 1) / 2;
         for (int i = 0; i < half - 1; i++)
         {
-            Item n = *get_elem_list(list, i);
+            float n = *get_elem_list(list, i);
             *get_elem_list(list, i) = *get_elem_list(list, half);
             *get_elem_list(list, half) = n;
         }
         print(list);
     } else {
-        printf("List has odd number of elements. Add or delete one to swap halves.");
+        printf("List has odd number of elements. Add or delete one to swap halves.\n\n");
     }
 }
