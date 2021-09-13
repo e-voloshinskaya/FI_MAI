@@ -22,17 +22,20 @@ int main()
     List l; // created list
     pl = &l;
     create(pl);
-    int pos;
+    int idx;
 
     for(;;)
     {
         menu();
+        //scanf("%*[^\n]");
         printf("Choose option:\n");
         char c = getchar();
-        getchar();
+        //getchar();
         //scanf("%*[^\n]");
-        if (c == '\n' && c == ' ')
-            continue;
+        if (c == '\n' || c == ' ')
+            c = getchar();
+        //printf("%d\n", c);
+        printf("\n");
         switch (c) {
             case 'a':
                 if (does_list_exist(pl))
@@ -41,12 +44,16 @@ int main()
         //!!!! небезопасный ввод!
                     float elem = 0;
                     scanf("%f", &elem);
+                    printf("\n");
                     print(pl);
                     printf("Enter the index (from 1 to length of list), where to put an item: ");
-                    scanf("%d", &pos);
-                    if (is_index_in_range(pl, pos - 1) && does_list_exist(pl))
-                        add_node(pl, pos - 1, elem);
-                        printf("ok");
+                    scanf("%d", &idx);
+                    if (is_index_in_range(pl, idx - 1) && does_list_exist(pl))
+                    {
+                        add_node(pl, idx - 1, elem);
+                        printf("\n");
+                    }
+            //scanf("%*[^\n]");
                 }
                 break;
             case 'p':
@@ -67,20 +74,27 @@ int main()
                 {
                     print(pl);
                     printf("Enter the index of the item you want to delete (from 1 to length of list): ");
-                    scanf("%d", &pos);
-                    if (is_index_in_range(pl, pos - 1) && does_list_exist(pl))
-                        delete_node(pl, pos - 1);
+                    scanf("%d", &idx);
+                    if (idx == size_list(pl))
+                        printf("Index out of range.\n\n");
+                    else if (is_index_in_range(pl, idx - 1) && does_list_exist(pl))
+                    {
+                        delete_node(pl, idx - 1);
+                        printf("\n");
+                    }
                 }
                 break;
             case 'q':
                 if (does_list_exist(pl))
                     destroy_list(pl);
                 exit(0);
+                break;
             default:
                 printf("There is no such option. Try again.\n\n");
                 break;
         }
         
     }
+    free(pl);
     return 0;
 }
