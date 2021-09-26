@@ -10,21 +10,21 @@ void queue_merge(queue* const result,
 
         while(!empty(left) && !empty(right)) {
             if (*top(left) < *top(right))
-                push(&tmp, pop(right));
+                push(tmp, pop(left));
             else
-                push(&tmp, pop(left));
+                push(tmp, pop(right));
         }
 
         while (!empty(left))
-            push(&tmp, pop(left));
+            push(tmp, pop(left));
 
         while (!empty(right))
-            push(&tmp, pop(right));
+            push(tmp, pop(right));
 
-        while (!empty(&tmp))
-            push(result, pop(&tmp));
+        while (!empty(tmp))
+            push(result, pop(tmp));
 
-        destroy(&tmp);
+        destroy(tmp);
     }
 
 
@@ -37,19 +37,19 @@ void queue_sort(queue* const q)
 
     while (!empty(q)) {
         if (size(q) % 2 == 0)
-            push(&left, pop(q));
+            push(left, pop(q));
         else
-            push(&right, pop(q));
+            push(right, pop(q));
     }
 
-    if (size(&left) > 1)
-        sort(&left);
+    if (size(left) > 1)
+        queue_sort(left);
 
-    if (size(&right) > 1)
-        sort(&right);
+    if (size(right) > 1)
+        queue_sort(right);
 
-    queue_merge(q, &left, &right);
+    queue_merge(q, left, right);
 
-    destroy(&right);
-    destroy(&left);
+    destroy(right);
+    destroy(left);
 }

@@ -19,7 +19,7 @@ int size(const queue* q)
     return q -> size;
 }
 
-int push (queue* q, const int t)
+int push(queue* q, const int t)
 {
     if(!(q->last->next = malloc(sizeof(Item))))
         return 0;
@@ -63,17 +63,17 @@ void destroy(queue* q)
 void print(queue* q)
 {
     if(!empty(q)) {
-        printf("size: %d\n", q->size);
         Item* curr = q->first;
+        printf("Queue: ");
         for(int i = 0; i < q->size; i++)
         {
             printf("%d ", curr->data);
             curr = curr->next;
         }
-        printf("\n");
+        printf("\n\n");
     }
     else 
     {
-        printf("Queue is empty\n");
+        printf("Queue is empty\n\n");
     }
 }

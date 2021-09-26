@@ -11,8 +11,8 @@ void menu()
         printf("2. Pop first element of the queue\n");
         printf("3. Get first element of the queue\n");
         printf("4. Print size of the queue\n");
-        printf("5. Sort the queue\n");
-        printf("6. Merge two queues\n");
+        printf("5. Print the queue\n");
+        printf("6. Sort the queue\n");
         printf("7. Quit\n");
 }
 
@@ -24,8 +24,8 @@ int main()
         int opt = 0;
 
         menu();
-        printf("Choose option 1-6:\n");
-        if (scanf("%d", &opt) != 1 || opt < 1 || opt > 6) {
+        printf("Choose option 1-7:\n");
+        if (scanf("%d", &opt) != 1 || opt < 1 || opt > 7) {
             printf("Error: There is no such option\n\n");
             scanf("%*[^\n]"); //stream cleaning
             continue;
@@ -58,15 +58,18 @@ int main()
                 break;
 
             case 5:
+                print(q);
                 break;
 
             case 6:
+                queue_sort(q);
                 break;
-                
+
             case 7:
                 exit(0);
         }
     }
 
+    destroy(q);
 	return 0;
 }
