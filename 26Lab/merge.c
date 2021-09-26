@@ -34,7 +34,6 @@ void queue_sort(queue* const q)
     queue *right;
     init(left);
     init(right);
-
     while (!empty(q)) {
         if (size(q) % 2 == 0)
             push(left, pop(q));

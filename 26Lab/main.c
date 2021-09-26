@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 #include "queue.h"
-#include "merge.h"
 
 void menu()
 {
@@ -40,10 +39,13 @@ int main()
                 break;
 
             case 2:
-                if (!pop(q))
+                if (empty(q))
                     printf("Error. The queue is empty\n\n");
                 else
+                {
+                    pop(q);
                     printf("Completed successfully\n\n");
+                }
                 break;
 
             case 3:

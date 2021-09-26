@@ -1,11 +1,8 @@
-run: main.o queue.o merge.o
-	gcc -o lab26 queue.o merge.o main.o
+run: main.o queue.o
+	gcc -o lab26 queue.o main.o
 
-main.o: main.c queue.h merge.h
+main.o: main.c queue.h
 	gcc -c main.c
-
-merge.o: merge.c merge.h
-	gcc -c merge.c
 
 queue.o: queue.c queue.h
 	gcc -c queue.c

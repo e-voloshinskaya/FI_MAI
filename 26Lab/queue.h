@@ -24,5 +24,6 @@ int pop(queue* q);
 int *top(const queue* q);
 void destroy(queue* q);
 void print(queue* q);
+void queue_sort(queue* const q);
 
 #endif

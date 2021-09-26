@@ -4,8 +4,8 @@
 #include "queue.h"
 
 
-void queue_merge(queue* const result,
+extern void queue_merge(queue* const result,
                         queue* const left, queue* const right);
-void queue_sort(queue* const q);
+extern void queue_sort(queue* const q);
 
 #endif
