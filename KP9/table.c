@@ -79,8 +79,7 @@ void Destroy(Table* l) {
         i = i->next;
         free(current);
     }
-    free(l->head);
-    l->head = 0;
+    l->head = NULL;
     l->size = 0;
 }
 
