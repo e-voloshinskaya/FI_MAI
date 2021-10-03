@@ -33,7 +33,6 @@ bool Equals(const iterator* lhs, const iterator* rhs);
 void Next(iterator* i);
 void Prev(iterator* i);
 Item Read(const iterator* i);
-void Write(const iterator* i, Item elem);
 void Create(Table* l);
 iterator First(const Table* l);
 iterator Last(const Table* l);

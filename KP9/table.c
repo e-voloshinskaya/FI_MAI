@@ -46,30 +46,30 @@ int size(const Table* l) {
     return l->size;
 }
 
-iterator Insert(Table* l, iterator* i, Item elem) {
-    iterator iterator1 = {malloc(sizeof(Node))};
-    if (!iterator1.node)
+iterator Insert(Table* l, iterator* i, Item elem) { //insert _before_ node with iterator i
+    iterator new_i = {malloc(sizeof(Node))};
+    if (!new_i.node)
         return Last(l);
-    iterator1.node->item = elem;
-    iterator1.node->next = i->node;
-    iterator1.node->prev = i->node->prev;
-    iterator1.node->prev->next = iterator1.node;
-    i->node->prev = iterator1.node;
+    new_i.node->item = elem;
+    new_i.node->next = i->node;
+    new_i.node->prev = i->node->prev;
+    new_i.node->prev->next = new_i.node;
+    i->node->prev = new_i.node;
     l->size++;
-    return iterator1;
+    return new_i;
 }
 
 iterator Delete(Table* l, iterator* i) {
-    iterator iterator = Last(l);
-    if(Equals(i, &iterator))
-        return iterator;
-    iterator.node = i->node->next;
-    iterator.node->prev = i->node->prev;
-    i->node->prev->next = iterator.node;
+    iterator tmp = Last(l);
+    if(Equals(i, &tmp))
+        return tmp;
+    tmp.node = i->node->next;
+    tmp.node->prev = i->node->prev;
+    i->node->prev->next = tmp.node;
     l->size--;
+    i->node = NULL;
     free(i->node);
-    i->node = 0;
-    return iterator;
+    return tmp;
 }
 
 void Destroy(Table* l) {
@@ -80,6 +80,7 @@ void Destroy(Table* l) {
         free(current);
     }
     l->head = NULL;
+    free(l->head);
     l->size = 0;
 }
 
