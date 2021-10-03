@@ -8,11 +8,11 @@ bool Equals(const iterator* lhs, const iterator* rhs) {
     return lhs->node == rhs->node;
 }
 
-void Next(iterator* i) { //before - iterator. not sure
+void Next(iterator* i) {
     i->node = i->node->next;
 }
 
-void Prev(iterator* i) { //before - iterator. not sure
+void Prev(iterator* i) {
     i->node = i->node->prev;
 }
 

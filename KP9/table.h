@@ -3,12 +3,12 @@
 
 #include <stdbool.h>
 
-typedef struct {
+typedef struct complex_ {
     long long real;
     long long img;
 } complex;
 
-typedef struct { // struct data -> item
+typedef struct Item_ {
     complex key;
     char data[100];
 } Item;
@@ -19,12 +19,12 @@ typedef struct Node_ {
     struct Node_* next;
 } Node;
 
-typedef struct {
+typedef struct Table_ {
     Node* head;
     int size;
 } Table;
 
-typedef struct {
+typedef struct iterator_ {
     Node* node;
 } iterator;
 
